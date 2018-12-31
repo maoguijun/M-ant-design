@@ -35,11 +35,11 @@ class EditableCell extends React.Component {
       record,
       index,
       width,
+      render,
       withToolTip,
       ...restProps
     } = this.props;
     const limitWidth = width || 100
-    console.log(this.props)
     return (
       <EditableContext.Consumer>
         {(form) => {

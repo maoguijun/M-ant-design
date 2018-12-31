@@ -1,5 +1,6 @@
 export const routePath = {
   base: '/',
   select: '/select',
-  table: '/table'
+  table: '/table',
+  form: '/form'
 }

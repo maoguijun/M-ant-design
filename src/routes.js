@@ -3,6 +3,7 @@
 import {routePath} from './config';
 import Select from './containers/Select';
 import Table from './containers/Table';
+import Form from './containers/Form';
 
 const routes = [
   {
@@ -13,6 +14,10 @@ const routes = [
     path: routePath.table,
     component: Table,
     name: 'table'
+  }, {
+    path: routePath.form,
+    component: Form,
+    name: 'MForm'
   }
 ]
 export default routes

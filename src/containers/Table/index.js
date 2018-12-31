@@ -18,8 +18,10 @@ export default class extends Component {
       dataSource: data
     }
   }
-  changeEditing = (key, target) => {
-    const {dataSource} = this.state
+  changeEditing = (key, target, dataSource) => {
+    if (!dataSource) {
+      dataSource = this.state.dataSource
+    }
     let data = [...dataSource]
     data = data.map((item) => {
       if (key === item.key) {
@@ -35,13 +37,22 @@ export default class extends Component {
   }
 
   save = (form, key) => {
-    console.log('save', form, key)
+    let {dataSource} = this.state
     form.validateFields((err, value) => {
       if (err) 
         return
-      console.log(value)
+      dataSource = dataSource.map(item => {
+        if (item.key === key) {
+          item = {
+            ...item,
+            ...value
+          }
+        }
+        return item
+      })
+      this.setState({dataSource});
+      this.changeEditing(key, false, dataSource)
     })
-    this.changeEditing(key, false)
   }
   cancel = (key) => {
     console.log('cancel', key)
@@ -53,6 +64,7 @@ export default class extends Component {
   }
   render() {
     const {dataSource} = this.state
+    console.log(dataSource)
     const columns = [
       {
         title: 'name',
