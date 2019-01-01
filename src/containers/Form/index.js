@@ -59,9 +59,12 @@ export default class extends Component {
       .join('')
     console.log(59, left)
     if (arr[1]) {
-      value = `${left}.${arr[1]}`
+      value = `${left}.${arr[1].slice(0, 2)}`
+    } else if (value.includes('.')) {
+      value = `${left}.`
     } else {
       value = left
+
     }
     return value
   }
