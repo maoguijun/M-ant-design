@@ -16,17 +16,10 @@ class MForm extends Component {
       source: props.source
     }
   }
-  // componentDidMount() {
-  //   const {source, form} = this.props
-  //   form.setFieldsValue(source)
-  // }
-  // componentWillReceiveProps(nextProps) {
-  //   const {form, editing} = this.props
-  //   if (editing) {
-
-  //     form.setFieldsValue(nextProps.source)
-  //   }
-  // }
+  // componentDidMount() {   const {source, form} = this.props
+  // form.setFieldsValue(source) } componentWillReceiveProps(nextProps) {   const
+  // {form, editing} = this.props   if (editing) {
+  // form.setFieldsValue(nextProps.source)   } }
   render() {
     const {
       form: {
@@ -64,7 +57,7 @@ class MForm extends Component {
                     ? render()
                     : source[dataIndex]}>
                     <div className='limit-wrap'>{render
-                        ? render()
+                        ? render(source[dataIndex])
                         : source[dataIndex]}</div>
                   </Tooltip>}
               </Form.Item>
